@@ -1,0 +1,9 @@
+@<TRIPOS>MOLECULE
+test_pdb.pdb
+ 1 0 0 0 0
+SMALL
+GASTEIGER
+
+@<TRIPOS>ATOM
+      1  N         50.0000   51.0000   52.0000 N.3     1  VAL1        0.0000
+@<TRIPOS>BOND
