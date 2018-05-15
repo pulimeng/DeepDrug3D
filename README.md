@@ -10,12 +10,13 @@ An example of binding grid generated, pdb ID: 1a2sA, atom type: C.ar.
 
 # Prerequisites
 
-1. Python 2.7+
-2. numpy 7.8.2 or higher
-3. scipy 0.13.3 or higher
-4. scikit-learn 0.19.0 or higher
-5. Openbabel 2.3.1 or higher (if you are using Anaconda, can be installed with `conda install -c openbabel openbabel`)
-6. tensorflow-gpu 
+1. Linux
+2. Python 2.7+
+3. numpy 7.8.2 or higher
+4. scipy 0.13.3 or higher
+5. scikit-learn 0.19.0 or higher
+6. Openbabel 2.3.1 or higher (if you are using Anaconda, can be installed with `conda install -c openbabel openbabel`)
+7. tensorflow-gpu 
 8. CUDA 7.5 or higher
 9. keras 2.1.4 or higher
 
@@ -28,13 +29,17 @@ The package provides both prediction and training modules.
 1. The prediction module 
 It uses the pdb file and an auxilary input file, which contains biniding residue numbers and center of the ligand/pocket, as input files. The center in the auxilary input file is not necessary. If the center is not provided, the model will calculate the pocket center and use it as the ligand center. An example of the auxilary file is provided in `example_aux.txt`. The prediction modle is available at `TODO insert model website here!`
 To use the prediction module, run `python predict.py --protein your_protein.pdb --aux your_auxilary_file.txt`.
-  - The `--protein` contains the full path to the pdb file you wish to classify.
-  - The `--aux` is the auxilary file with binding residue numbers and center of ligand (optional).
+  - `--protein` contains the full path to the pdb file you wish to classify.
+  - `--aux` is the auxilary file with binding residue numbers and center of ligand (optional).
   - Two files will be generated along the process, namely `your_protein_trans.pdb` and `your_protein_trans.mol2` under the current working directory. These files are the transformed (moved to the provided center and aligned with the principal axes of the pocket) protein. They will be used during the preceding processes. If you do not wish to keep them, you can just delete them after the getting the results.
   - The output will be printed as two probabilities that how likely the given pocket is to bind with ATP and Heme.
   - The entire process may take upto 30 minutes to finish since the grid point generation is very time consuming.
-  - The DFIRE potentials calculation uses the module provided by `A Knowledge-Based Energy Function for Protein−Ligand, Protein−Protein, and Protein−DNA Complexes by Zhang et al.` since it is written in Fortran, which is faster than our own implementation in Python.
+  - The DFIRE potentials calculation uses the module provided by `A Knowledge-Based Energy Function for Protein−Ligand, Protein−Protein, and Protein−DNA Complexes by Zhang et al.` since it is written in Fortran, which is faster than our own implementation in Python. To run the file, one might need to change the permission level of the file by using `chmod` in linux.
   
 2. The training module
 
-In order to use the module to train, you have to generate a dataset with voxel representation of protein-ligand biniding site. The trainig module can be runned as `python train.py --alist`
+In order to use the module to train, you have to generate a dataset with voxel representation of protein-ligand biniding site. The trainig module can be runned as `python train.py --alist your_ATP.lst --hlist your_Heme.lst --vfolder your_voxel_data_folder --bs batch_size --lr inital_learning_rate --epoch number_of_epoches --output output_location_of_trained_model`.
+  - `--alist` is the list of the full path to the ATP binding voxel data while `--hlist` is the list of the full path to the Heme binidng voxel data
+  - `--vfolder` is the folder contains all the voxel data
+  - `--bs`, `--lr`, `--epoch` is the hyperparameters related to the model. Recommanded values are 64, 0.00001, 30.
+  - If no output location is provided, the model will be saved to the current workding direcotry as 'deepdrug3d.h5'.
