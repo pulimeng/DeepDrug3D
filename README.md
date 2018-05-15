@@ -29,4 +29,7 @@ To use the prediction module, run `python predict.py --protein your_protein.pdb 
   - Two files will be generated along the process, namely `your_protein_trans.pdb` and `your_protein_trans.mol2` under the current working directory. These files are the transformed (moved to the provided center and aligned with the principal axes of the pocket) protein. They will be used during the preceding processes. If you do not wish to keep them, you can just delete them after the getting the results.
   - The output will be printed as two probabilities that how likely the given pocket is to bind with ATP and Heme.
   - The entire process may take upto 30 minutes to finish since the grid point generation is very time consuming.
-  - The DFIRE potentials calculation uses the module provided by `A Knowledge-Based Energy Function for Protein−Ligand, Protein−Protein, and Protein−DNA Complexes by Zhang et al.`.
+  - The DFIRE potentials calculation uses the module provided by `A Knowledge-Based Energy Function for Protein−Ligand, Protein−Protein, and Protein−DNA Complexes by Zhang et al.` since it is written in Fortran, which is faster than our own implementation in Python.
+  
+2. The training module
+The 
