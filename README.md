@@ -36,4 +36,5 @@ To use the prediction module, run `python predict.py --protein your_protein.pdb 
   - The DFIRE potentials calculation uses the module provided by `A Knowledge-Based Energy Function for Protein−Ligand, Protein−Protein, and Protein−DNA Complexes by Zhang et al.` since it is written in Fortran, which is faster than our own implementation in Python.
   
 2. The training module
-The 
+
+In order to use the module to train, you have to generate a dataset with voxel representation of protein-ligand biniding site. The trainig module can be runned as `python train.py --alist`
