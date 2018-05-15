@@ -38,7 +38,7 @@ To use the prediction module, run `python predict.py --protein your_protein.pdb 
   
 2. The training module
 
-In order to use the module to train, you have to generate a dataset with voxel representation of protein-ligand biniding site. The trainig module can be runned as `python train.py --alist your_ATP.lst --hlist your_Heme.lst --vfolder your_voxel_data_folder --bs batch_size --lr inital_learning_rate --epoch number_of_epoches --output output_location_of_trained_model`.
+In order to use the module to train, you have to generate a dataset with voxel representation of protein-ligand biniding site. The trainig module can be runned as `python train.py --alist deepdrug3d_ATP.lst --hlist deepdrug3d_Heme.lst --vfolder deepdrug3d_voxel_data --bs batch_size --lr inital_learning_rate --epoch number_of_epoches --output deepdrug3d`.
   - `--alist` is the list of the full path to the ATP binding voxel data while `--hlist` is the list of the full path to the Heme binidng voxel data
   - `--vfolder` is the folder contains all the voxel data
   - `--bs`, `--lr`, `--epoch` is the hyperparameters related to the model. Recommanded values are 64, 0.00001, 30.
