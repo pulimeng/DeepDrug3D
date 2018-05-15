@@ -15,6 +15,14 @@ This README file is written by Limeng Pu
 8. CUDA 7.5 or higher
 9. keras 2.1.4 or higher
 
+For the installation instruction please refer to the corresponding project site.
+
 # Usage
 
-The package provides both prediction and training modules. The prediction module uses the pdb file and an auxilary input file, which contains biniding residue numbers and center of the ligand/pocket. The center is not necessary. If the center is not provided, the model will calculate the pocket center and use it as the ligand center.
+The package provides both prediction and training modules. 
+
+1. The prediction module 
+It uses the pdb file and an auxilary input file, which contains biniding residue numbers and center of the ligand/pocket, as input files. The center in the auxilary input file is not necessary. If the center is not provided, the model will calculate the pocket center and use it as the ligand center. An example of the auxilary file is provided in `example_aux.txt`.
+To use the prediction module, run `python predict.py --protein your_protein.pdb --aux your_auxilary_file.txt`.
+  - The `--protein` contains the full path to the pdb file you wish to predict.
+  - The `--aux` is the auxilary file with binding residue numbers and center of ligand (optional).
