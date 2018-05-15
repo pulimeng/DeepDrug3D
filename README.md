@@ -43,3 +43,7 @@ In order to use the module to train, you have to generate a dataset with voxel r
   - `--vfolder` is the folder contains all the voxel data
   - `--bs`, `--lr`, `--epoch` is the hyperparameters related to the model. Recommanded values are 64, 0.00001, 30.
   - If no output location is provided, the model will be saved to the current workding direcotry as 'deepdrug3d.h5'.
+  
+# Dataset
+
+We provided our dataset we used for the training at `TODO insert dataset link here`, which are the voxel representations and ATP-, Heme-list.
