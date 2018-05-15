@@ -6,7 +6,7 @@ This README file is written by Limeng Pu
 
 ![eg_image](https://github.com/pulimeng/DeepDrug3D/blob/master/image/1a2sA.png)
 
-An example of binding grid generated, pdb ID: 1a2sA, atom type: C.ar.
+An example of binding grid generated, pdb ID: 1a2sA, atom type: C.ar. Red --> low potentials while Blue --> high potentials.
 
 # Prerequisites
 
