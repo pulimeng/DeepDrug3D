@@ -9,7 +9,6 @@ Predict the protein binds to ATP or Heme
 import sys
 import argparse
 
-import numpy as np
 from voxelization import Vox3DBuilder
 
 from keras.models import load_model
