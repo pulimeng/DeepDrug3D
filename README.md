@@ -4,7 +4,7 @@ DeepDrug3D is a tool to classify the protein pocket to be ATP-binding or Heme-bi
 
 This README file is written by Limeng Pu
 
-![alt text](https://github.com/pulimeng/DeepDrug3D/blob/master/image/forgit.png =250x250)
+![alt text](https://github.com/pulimeng/DeepDrug3D/blob/master/image/forgit.png | width = 250)
 
 An example of binding grid generated, pdb ID: 1a2sA.
 
