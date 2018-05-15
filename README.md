@@ -4,6 +4,8 @@ DeepDrug3D is a tool to classify the protein pocket to be ATP-binding or Heme-bi
 
 This README file is written by Limeng Pu
 
+![alt text](https://https://github.com/pulimeng/DeepDrug3D/edit/master/README.md
+
 # Prerequisites
 
 1. Python 2.7+
