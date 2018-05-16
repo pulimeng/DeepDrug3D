@@ -20,8 +20,8 @@ An example of binding grid generated, pdb ID: 1a2sA, atom type: C.ar. Red --> lo
 4. scipy 0.13.3 or higher
 5. scikit-learn 0.19.0 or higher
 6. Openbabel 2.3.1 or higher (if you are using Anaconda, can be installed with `conda install -c openbabel openbabel`)
-7. tensorflow-gpu 
-8. CUDA 7.5 or higher
+7. tensorflow (GPU version if you wish to train on provided/your own data)
+8. CUDA 7.5 or higher (if you wish to train on provided/your own data)
 9. keras 2.1.4 or higher
 
 For the installation instruction please refer to the corresponding project site.
