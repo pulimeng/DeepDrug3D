@@ -31,6 +31,7 @@ For the installation instruction please refer to the corresponding project site.
 The package provides both prediction and training modules. 
 
 1. The prediction module 
+
 It uses the pdb file and an auxilary input file, which contains biniding residue numbers and center of the ligand/pocket, as input files. The center in the auxilary input file is not necessary. If the center is not provided, the model will calculate the pocket center and use it as the ligand center. An example of the auxilary file is provided in `example_aux.txt`. The prediction modle is available at `TODO insert model website here!`
 To use the prediction module, run `python predict.py --protein your_protein.pdb --aux your_auxilary_file.txt`.
   - `--protein` contains the full path to the pdb file you wish to classify.
