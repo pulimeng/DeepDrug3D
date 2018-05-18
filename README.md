@@ -32,7 +32,7 @@ The package provides both prediction and training modules.
 
 1. The prediction module 
 
-It uses the pdb file and an auxilary input file, which contains biniding residue numbers and center of the ligand/pocket, as input files. The center in the auxilary input file is not necessary. If the center is not provided, the model will calculate the pocket center and use it as the ligand center. An example of the auxilary file is provided in `example_aux.txt`. The prediction modle is available at `TODO insert model website here!`
+It uses the pdb file and an auxilary input file, which contains biniding residue numbers and center of the ligand/pocket, as input files. The center in the auxilary input file is not necessary. If the center is not provided, the model will calculate the pocket center and use it as the ligand center. An example of the auxilary file is provided in `example_aux.txt`. The prediction modle is available at `https://osf.io/enz69/`
 To use the prediction module, run `python predict.py --protein your_protein.pdb --aux your_auxilary_file.txt`.
   - `--protein` contains the full path to the pdb file you wish to classify.
   - `--aux` is the auxilary file with binding residue numbers and center of ligand (optional).
@@ -51,4 +51,4 @@ In order to use the module to train, you have to generate a dataset with voxel r
   
 # Dataset
 
-We provided our dataset we used for the training at `TODO insert dataset link here`, which are the voxel representations and ATP-, Heme-list.
+We provided our dataset we used for the training at `https://osf.io/enz69/`, which are the voxel representations and ATP-, Heme-list.
