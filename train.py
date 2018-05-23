@@ -22,14 +22,14 @@ from keras.optimizers import Adam
 from keras.utils import np_utils
 
 def argdet():
-    if len(sys.argv) < 6:
+    if len(sys.argv) < 13:
         print('Check number of input arguement!')
         exit()
-    elif len(sys.argv) == 6:
+    elif len(sys.argv) == 13:
         print('Save model as deepdrug3d.h5')
         args = myargs()
         return args
-    elif len(sys.argv) == 7:
+    elif len(sys.argv) == 15:
         print('Save model to provided location')
         args = myargs()
         return args
