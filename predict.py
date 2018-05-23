@@ -23,10 +23,10 @@ def myargs():
     return args
 
 def argdet():
-    if len(sys.argv) < 2:
+    if len(sys.argv) < 5:
         print('Check number of input arguement!')
         exit()
-    elif len(sys.argv) == 2:
+    elif len(sys.argv) == 5:
         args = myargs()
         return args
     else:
