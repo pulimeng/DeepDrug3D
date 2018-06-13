@@ -89,7 +89,7 @@ def vrrotvec2mat(r):
 class Vox3DBuilder(object):
     """
     This class convert the pdb file to the voxel representation for the input
-    of deep learning architecture. The conversion is around 30 mins.
+    of deep learning architecture. The conversion is around 30 mins for each binding site.
     """
     @staticmethod
     def voxelization(pdb_path, aux_input_path):
