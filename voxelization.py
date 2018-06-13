@@ -105,6 +105,8 @@ class Vox3DBuilder(object):
         in_strm.close()
         resi =  [int(x) for x in content[0].split(' ')]
         if len(content[1]) != 0:
+            pocket_df = protein_df[protein_df['residue_number'].isin(resi)]
+            pocket_coords = np.array([pocket_df['x_coord'], pocket_df['y_coord'], pocket_df['z_coord']]).T
             pocket_center = np.array([int(x) for x in content[1].split(' ')])
         else:
             print('No center is provided')
