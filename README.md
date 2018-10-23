@@ -36,14 +36,14 @@ It uses the pdb file and an auxilary input file, which contains biniding residue
 To use the prediction module, run `python predict.py --protein your_protein.pdb --aux your_auxilary_file.txt`.
   - `--protein` contains the full path to the pdb file you wish to classify.
   - `--aux` is the auxilary file with binding residue numbers and center of ligand (optional).
-  - Two files will be generated along the process, namely `your_protein_trans.pdb` and `your_protein_trans.mol2` under the current working directory. These files are the transformed (moved to the provided center and aligned with the principal axes of the pocket) protein. They will be used during the preceding processes. If you do not wish to keep them, you can just delete them after the getting the results.
-  - The output will be printed as two probabilities that how likely the given pocket is to bind with ATP and Heme.
-  - The entire process may take upto 30 minutes to finish since the grid point generation is very time consuming.
-  - The DFIRE potentials calculation uses the module provided by `A Knowledge-Based Energy Function for Protein−Ligand, Protein−Protein, and Protein−DNA Complexes by Zhang et al.` since it is written in Fortran, which is faster than our own implementation in Python. To run the file, one might need to change the permission level of the file by using `chmod` in linux.
+  - Two files will be generated along the process, namely `your_protein_trans.pdb` and `your_protein_trans.mol2` under the current working directory. These files are the transformed (moved to the provided center and aligned with the principal axes of the pocket) protein. They will be used during the later processes. If you do not wish to keep them, you can just delete them after the getting the results.
+  - The output will be printed as three probabilities that each represents the likelihood of the pocket being an ATP/Heme/other binding pocket.
+  - The entire process may take upto 30 minutes to finish since the grid point generation (mostly the potential calculation) is very time consuming.
+  - The DFIRE potentials calculation uses the module provided by `A Knowledge-Based Energy Function for Protein−Ligand, Protein−Protein, and Protein−DNA Complexes by Zhang et al.` since it is written in Fortran, which is faster than our own implementation in Python.
   
 2. The training module
 
-In order to use the module to train, you have to generate a dataset with voxel representation of protein-ligand biniding site. The trainig module can be runned as `python train.py --alist deepdrug3d_atp.lst --hlist deepdrug3d_heme.lst --vfolder deepdrug3d_voxel_data --bs batch_size --lr inital_learning_rate --epoch number_of_epoches --output deepdrug3d`.
+In order to use our model to train your own dataset, you have to conert your dataset, which will be pdbs to voxel representation of protein-ligand biniding site. The trainig module can be runned as `python train.py --alist deepdrug3d_atp.lst --hlist deepdrug3d_heme.lst --vfolder deepdrug3d_voxel_data --bs batch_size --lr inital_learning_rate --epoch number_of_epoches --output deepdrug3d`.
   - `--alist` is the list of the full path to the ATP binding voxel data while `--hlist` is the list of the full path to the Heme binidng voxel data.
   - `--vfolder` is the folder contains all the voxel data, which contains numpy array (.npy) for each protein-ligand pair.
   - `--bs`, `--lr`, `--epoch` is the hyperparameters related to the model. Recommanded values are 64, 0.00001, 30.
