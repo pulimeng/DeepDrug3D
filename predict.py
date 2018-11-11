@@ -19,10 +19,10 @@ def myargs():
                         'location of the protein pdb file path')
     parser.add_argument('--aux', required = True, help = 
                         'location of the auxilary input file')
-    parser.add_argument('--r', required = True, help = 
+    parser.add_argument('--r', required = False, help = 
                         'radius of the grid to be generated', default=15,
                        type=int, dest='r')
-    parser.add_argument('--N', required = True, help = 
+    parser.add_argument('--N', required = False, help = 
                         'number of points long the dimension the generated grid', default=31,
                        type=int, dest='N')
     args = parser.parse_args()
