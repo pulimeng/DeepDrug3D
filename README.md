@@ -33,10 +33,10 @@ The package provides both prediction and training modules.
 1. The prediction module 
 
 It uses the pdb file and an auxilary input file, which contains biniding residue numbers and center of the ligand/pocket, as input files. The center in the auxilary input file is not necessary. If the center is not provided, the model will calculate the pocket center and use it as the ligand center. An example of the auxilary file is provided in `example_aux.txt`. The trained modle is available at `https://osf.io/enz69/`
-To use the prediction module, run `python predict.py --protein your_protein.pdb --aux your_auxilary_file.txt`.
+To use the prediction module, run `python predict.py --protein your_protein.pdb --aux your_auxilary_file.txt --r 15 --N 31`.
   - `--protein` contains the full path to the pdb file you wish to classify.
   - `--aux` is the auxilary file with binding residue numbers and center of ligand (optional).
-  - `--r` and `--N` are the radius of the grid and number of points along the dimension of the grid. The default settings are r = 15 and N = 32. This setting yeilds a 32 x 32 x 32 grid. This can be changed by setting r and N.
+  - `--r` and `--N` are the radius of the grid and number of points along the dimension of the grid. The default settings are r = 15 and N = 31. This setting yeilds a 32 x 32 x 32 grid. This can be changed by setting r and N.
   - Two files will be generated along the process, namely `your_protein_trans.pdb` and `your_protein_trans.mol2` under the current working directory. These files are the transformed (moved to the provided center and aligned with the principal axes of the pocket) protein. They will be used during the later processes. If you do not wish to keep them, you can just delete them after the getting the results.
   - The output will be printed as three probabilities that each represents the likelihood of the pocket being an ATP/Heme/other binding pocket.
   - The entire process may take upto 30 minutes to finish since the grid point generation (mostly the potential calculation) is very time consuming.
