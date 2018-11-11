@@ -19,13 +19,13 @@ from binding_grid import Grid3DBuilder
 
 #from keras.models import load_model
 
-def site_voxelization(site):
+def site_voxelization(site, voxel_length):
     site = np.array(site, dtype = np.float64)
     coords = site[:,0:3]
     potentials = site[:,3:None]
     voxel_length = 32
-    voxel_start = -15
-    voxel_end = 16
+    voxel_start = -voxel_length/2 + 1
+    voxel_end = voxel_length/2
     voxel = np.zeros( shape = (14, voxel_length, voxel_length, voxel_length),
         dtype = np.float64) 
     cnt = 0
@@ -92,7 +92,7 @@ class Vox3DBuilder(object):
     of deep learning architecture. The conversion is around 30 mins for each binding site.
     """
     @staticmethod
-    def voxelization(pdb_path, aux_input_path):
+    def voxelization(pdb_path, aux_input_path, r, N):
         # Read the pdb file and the auxilary input file
         ppdb = PandasPdb().read_pdb(pdb_path)
         protein_df = ppdb.df['ATOM']
@@ -143,12 +143,10 @@ class Vox3DBuilder(object):
         mol = pybel.readfile('pdb',output_trans_pdb_path).next()
         mol.write('mol2',output_trans_mol2_path, overwrite = True)    
         # Grid generation and DFIRE potential calculation
-        r = 15
-        N = 31
         print('...Generating pocket grid representation')
         pocket_grid = Grid3DBuilder.build(protein_coords, output_trans_mol2_path, r, N)
         print('...Generating pocket voxel representation')
-        pocket_voxel = site_voxelization(pocket_grid)
+        pocket_voxel = site_voxelization(pocket_grid, N + 1)
         pocket_voxel = np.expand_dims(pocket_voxel, axis = 0)
 #        np.save('voxel_rep', pocket_voxel)
         return pocket_voxel
