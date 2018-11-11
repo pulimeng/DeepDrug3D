@@ -22,7 +22,7 @@ def myargs():
     parser.add_argument('--r', required = True, help = 
                         'radius of the grid to be generated', default=15,
                        type=int, dest='r')
-    arser.add_argument('--N', required = True, help = 
+    parser.add_argument('--N', required = True, help = 
                         'number of points long the dimension the generated grid', default=31,
                        type=int, dest='N')
     args = parser.parse_args()
