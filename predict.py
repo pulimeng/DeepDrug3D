@@ -19,6 +19,12 @@ def myargs():
                         'location of the protein pdb file path')
     parser.add_argument('--aux', required = True, help = 
                         'location of the auxilary input file')
+    parser.add_argument('--r', required = True, help = 
+                        'radius of the grid to be generated', default=15,
+                       type=int, dest='r')
+    arser.add_argument('--N', required = True, help = 
+                        'number of points long the dimension the generated grid', default=31,
+                       type=int, dest='N')
     args = parser.parse_args()
     return args
 
@@ -33,8 +39,8 @@ def argdet():
         print('Cannot recognize the inputs!')
         exit()
 
-def main(protein_path, aux_path):
-    voxel = Vox3DBuilder.voxelization(protein_path, aux_path)
+def main(protein_path, aux_path, r, N):
+    voxel = Vox3DBuilder.voxelization(protein_path, aux_path, r, N)
     mdl = load_model('deepdrug3d.h5')
     score = mdl.predict(voxel)
     print('The probability of biniding with ATP: ' + str(score[0]))
@@ -42,4 +48,4 @@ def main(protein_path, aux_path):
     
 if __name__ == "__main__":
     args = argdet()
-    main(args.protein, args.aux)
+    main(args.protein, args.aux, args.r, args.N)
