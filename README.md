@@ -4,7 +4,7 @@ DeepDrug3D is a tool to predict the protein pocket to be ATP/Heme/other-binding 
 
 If you find this tool useful, please cite our paper:
 
-Limeng Pu, Rajiv Gandhi, Hsiao-Chun Wu, and Michal Brylinski. "DeepDrug3D:         ."
+Pu L, Govindaraj RG, Lemoine JM, Wu HC, Brylinski M (2019) DeepDrug3D: Classification of ligand-binding pockets in proteins with a convolutional neural network. PLOS Computational Biology 15(2): e1006718. https://doi.org/10.1371/journal.pcbi.1006718
 
 This README file is written by Limeng Pu
 
