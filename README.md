@@ -15,7 +15,7 @@ An example of binding grid generated, pdb ID: 1a2sA, atom type: C.ar. Red --> lo
 # Prerequisites
 
 1. Linux (DFIRE potential calculation supports only Linux)
-2. Python 2.7 (if you are running Python 3, you need to change some syntax accordingly, like print() or map())
+2. Python 2.7 (if you are running Python 3, you need to change some syntax of some functions accordingly, like `print()` or `map()`)
 3. numpy 7.8.2 or higher
 4. scipy 0.13.3 or higher
 5. scikit-learn 0.19.0 or higher
