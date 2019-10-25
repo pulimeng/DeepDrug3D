@@ -118,7 +118,7 @@ def single_potEnergy(loc1, ld_type_list, mol2_in_string, protein_file):
     return Es
 def minmax_scale(X,axis = 0):
     X_std = (X - X.min(axis=0)) / (X.max(axis=0) - X.min(axis=0))
-    X_scaled = X_std * (X.max - X.min) + X.min
+    X_scaled = X_std * (X.max(axis=0) - X.min(axis=0)) + X.min(axis=0)
     return X_scaled
 def potEnergy(binding_site, mol2_in_path, protein_file):
     ld_type_list = ['C.2','C.3','C.ar','F','N.am','N.2','O.co2','N.ar','S.3','O.2','O.3','N.4','P.3','N.pl3']
