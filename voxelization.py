@@ -144,7 +144,7 @@ class Vox3DBuilder(object):
         mol.write('mol2',output_trans_mol2_path, overwrite = True)    
         # Grid generation and DFIRE potential calculation
         print('...Generating pocket grid representation')
-        pocket_grid = Grid3DBuilder.build(protein_coords, output_trans_mol2_path, r, N)
+        pocket_grid = Grid3DBuilder.build(transformed_coords, output_trans_mol2_path, r, N)
         print('...Generating pocket voxel representation')
         pocket_voxel = site_voxelization(pocket_grid, N + 1)
         pocket_voxel = np.expand_dims(pocket_voxel, axis = 0)
