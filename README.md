@@ -14,7 +14,7 @@ An example of binding grid generated, pdb ID: 1a2sA, atom type: C.ar. Red --> lo
 
 # Dedendencies
 
-The dependencies are provided in `environment.yml`. Change the pytorch 
+The dependencies are provided in `environment.yml`. Please change line 9 and line 14 in the file according to your system.
 To install all the dependencies run `conda env create -f environment.yml`.
 
 # Usage
