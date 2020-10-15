@@ -31,7 +31,7 @@ The package provides data-generation, prediction, and training modules.
 
 1. Data generation
 
-This module generates data for training/prediction while providing intermediate results for visualization. 
+This module generates data for training/prediction while providing intermediate results for visualization. All files are under `./DataGeneration`.
 
 To generate the binding grid data, run `python voxelization.py --f example.pdb --a example_aux.txt --o results --r 15 --n 31 --p`.
   - `--f` input pdb file path.
