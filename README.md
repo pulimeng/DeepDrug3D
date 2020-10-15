@@ -23,7 +23,7 @@ library used has been changed from <em>Keras</em> to <em>Pytorch</em>**
 
 1. System requirement: Linux (DFIRE potential calculation only runs on Linux. Tested on <em>Red Hat Enterprise Linux 6</em>)
 2. The data-generation module dependencies are provided in `./DataGeneration/environment.yml`. Please change line 9 in the file according to your system. To install all the dependencies run `conda env create -f environment.yml`.
-3. The learning model requires <em>Pytorch</em>. To install it, refer to https://pytorch.org/get-started/locally.
+3. The learning module requires <em>Pytorch</em>. To install it, refer to https://pytorch.org/get-started/locally.
 
 # Usage
 
