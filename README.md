@@ -21,7 +21,7 @@ To install all the dependencies run `conda env create -f environment.yml`.
 
 # Usage
 
-The package provides both prediction and training modules. 
+The package provides prediction, training and visualization modules.
 
 1. The prediction module 
 
