@@ -34,13 +34,12 @@ The package provides data-generation, prediction, and training modules.
 This module generates data for training/prediction while providing intermediate results for visualization. 
 
 To generate the binding grid data, run `python voxelization.py --f example.pdb --a example_aux.txt --o results --r 15 --n 31 --p`.
-    Inputs:
-    - `--f` input pdb file path.
-    - `--a` input auxilary file path, with binding residue numbers and center of ligand (optional). An example of the auxilary file is provided in `example_aux.txt`.
-    - `--r` the radius of the spherical grid.
-    - `--n` the number of points along the dimension of the spherical grid.
-    - `--o` output folder path.
-    - `--p` or `--s` whether to calculate the potential nor not. If not, only the binary occupied grid will be returne, i.e., the shape of the grid only. Default, yes.
+  - `--f` input pdb file path.
+  - `--a` input auxilary file path, with binding residue numbers and center of ligand (optional). An example of the auxilary file is provided in `example_aux.txt`.
+  - `--r` the radius of the spherical grid.
+  - `--n` the number of points along the dimension of the spherical grid.
+  - `--o` output folder path.
+  - `--p` or `--s` whether to calculate the potential nor not. If not, only the binary occupied grid will be returne, i.e., the shape of the grid only. Default, yes.
   
 
 2. Prediction
