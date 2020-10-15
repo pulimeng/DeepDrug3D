@@ -6,7 +6,7 @@ If you find this tool useful, please star this repo and cite our paper :)
 
 Pu L, Govindaraj RG, Lemoine JM, Wu HC, Brylinski M (2019) DeepDrug3D: Classification of ligand-binding pockets in proteins with a convolutional neural network. PLOS Computational Biology 15(2): e1006718. https://doi.org/10.1371/journal.pcbi.1006718
 
-This README file is written by Limeng Pu.
+This README file is written by Limeng Pu. ``This is a newer version of the implmentation. Some intermediate results visualization has been added.``
 
 ![eg_image](https://github.com/pulimeng/DeepDrug3D/blob/master/image/1a2sA.png)
 
