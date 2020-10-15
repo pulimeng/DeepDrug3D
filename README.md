@@ -47,7 +47,7 @@ To visualize the output binidng pocket grid, run `python visualization --i examp
   - `--i` input binding pocket grid file path.
   - `--c` channel to visualize. Note that if you pass `--s` in the previous step, the channel number `--c` has to be 0.
   
-An output `example_grid.pdb` will be generated for visualization.
+An output `example_grid.pdb` will be generated for visualization. Note this pocket grid matches the transformed protein `example_transformed.pdb`.
 
 2. Prediction
 
