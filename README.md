@@ -43,4 +43,4 @@ In order to use our model to train your own dataset, you have to conert your dat
   
 # Dataset
 
-We provided our dataset we used for the training at `https://osf.io/enz69/`, which are the voxel representations and ATP-, Heme-list.
+We provided our dataset we used for the training at `https://osf.io/enz69/`, which are the voxel representations of ATP, Heme, and other along with the class label file.
