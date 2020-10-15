@@ -39,8 +39,15 @@ To generate the binding grid data, run `python voxelization.py --f example.pdb -
   - `--r` the radius of the spherical grid.
   - `--n` the number of points along the dimension of the spherical grid.
   - `--o` output folder path.
-  - `--p` or `--s` whether to calculate the potential nor not. If not, only the binary occupied grid will be returne, i.e., the shape of the grid only. Default, yes.
+  - `--p` or `--s` whether to calculate the potential nor not. If not, only the binary occupied grid will be returne, i.e., the shape of the grid only. Default, yes (`--p`).
+
+Several files will be saved, including `example_transformed.pdb` (coordinate-transformed pdb file), `example_transformed.mol2` (coordinate-transformed mol2 file for the calculation of DFIRE potential), `example.grid` (grid representation of the binding pocket grid for visualization), and `example.h5` (numpy array of the binidng pocket grid).
+
+To visualize the output binidng pocket grid, run `python visualization --i example.grid --c 0`.
+  - `--i` input binding pocket grid file path.
+  - `--c` channel to visualize. Note that if you pass `--s` in the previous step, the channel number `--c` has to be 0.
   
+An output `example_grid.pdb` will be generated for visualization.
 
 2. Prediction
 
