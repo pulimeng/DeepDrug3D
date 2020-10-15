@@ -6,13 +6,18 @@ If you find this tool useful, please star this repo and cite our paper :)
 
 Pu L, Govindaraj RG, Lemoine JM, Wu HC, Brylinski M (2019) DeepDrug3D: Classification of ligand-binding pockets in proteins with a convolutional neural network. PLOS Computational Biology 15(2): e1006718. https://doi.org/10.1371/journal.pcbi.1006718
 
-This README file is written by Limeng Pu. **This is a newer version of the implmentation. A intermediate results visualization function has been added. And the model has been retrained using Pytorch instead of Keras.**
+This README file is written by Limeng Pu.
 
 <p align="center">
     <img width="400" height="400" src="./image/1a2sA.png">
 </p>
 
 An example of binding grid generated, pdb ID: 1a2sA, atom type: C.ar. Red --> low potentials while Blue --> high potentials.
+
+# Change Log
+
+**This is a newer version of the implmentation. Since many people are interested in visualize the output from the grid generation like in the image below, I've decided to seperate the data-generation module and the training/prediction module. And the deel learning 
+library used has been changed from <em>Keras</em> to <em>Pytorch</em>**
 
 # Prerequisites
 1. System requirement: Linux (DFIRE potential calculation only runs on Linux. Tested on <em>Red Hat Enterprise Linux 6</em>)
