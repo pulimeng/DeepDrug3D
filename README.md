@@ -17,7 +17,7 @@ An example of binding grid generated, pdb ID: 1a2sA, atom type: C.ar. Red --> lo
 # Prerequisites
 1. System requirement: Linux (DFIRE potential calculation only runs on Linux. Tested on <em>Red Hat Enterprise Linux 6</em>)
 2. The dependencies are provided in `environment.yml`. Please change line 9 and line 14 in the file according to your system. To install all the dependencies run `conda env create -f environment.yml`.
-3. In case of failuer to run DFIRE or Pytorch, separate the data-generation process and trainig/prediction process. Make two distinct environment for each of them. Then store the generated data for training/prediction.
+3. In case of failuer to run DFIRE or Pytorch, separate the data-generation process and trainig/prediction process. Make two distinct environment for each of them. Store the generated data for training/prediction then run the prediction.
 
 # Usage
 
