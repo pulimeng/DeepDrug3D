@@ -21,11 +21,17 @@ An example of binding grid generated, pdb ID: 1a2sA, atom type: C.ar. Red --> lo
 
 # Usage
 
-The package provides prediction, training and visualization modules.
+The package provides data-generation, prediction, and training modules.
 
-1. The prediction module 
+1. Data generation
 
-It uses the pdb file and an auxilary input file, which contains biniding residue numbers and center of the ligand/pocket, as input files. The center in the auxilary input file is not necessary. If the center is not provided, the model will calculate the pocket center and use it as the ligand center. An example of the auxilary file is provided in `example_aux.txt`. The trained model is available at `https://osf.io/enz69/`
+This step generates data for training/prediction while provides intermediate results for visualization.
+
+The input contains a .pdb file of the protein and auxilary file marking the binding residue numbers and center of the pocket (optional). An example of the auxilary file is provided in `example_aux.txt`.
+
+2. Prediction
+
+It uses the pdb file and an auxilary input file, which contains biniding residue numbers and center of the ligand/pocket, as input files. The center in the auxilary input file is not necessary. If the center is not provided, the model will calculate the pocket center and use it as the ligand center.  The trained model is available at `https://osf.io/enz69/`
 To use the prediction module, run `python predict.py --protein your_protein.pdb --aux your_auxilary_file.txt --r 15 --N 31`.
   - `--protein` contains the full path to the pdb file you wish to classify.
   - `--aux` is the auxilary file with binding residue numbers and center of ligand (optional).
@@ -35,7 +41,7 @@ To use the prediction module, run `python predict.py --protein your_protein.pdb 
   - The entire process may take upto 30 minutes to finish since the grid point generation (mostly the potential calculation) is very time consuming.
   - The DFIRE potentials calculation uses the module provided by `A Knowledge-Based Energy Function for Protein−Ligand, Protein−Protein, and Protein−DNA Complexes by Zhang et al.` since it is written in Fortran, which is faster than our own implementation in Python.
   
-2. The training module
+3. Training
 
 In order to use our model to train your own dataset, you have to conert your dataset, which will be pdbs to voxel representation of protein-ligand biniding site. The trainig module can be runned as `python train.py --alist deepdrug3d_atp.lst --hlist deepdrug3d_heme.lst --vfolder deepdrug3d_voxel_data --bs batch_size --lr inital_learning_rate --epoch number_of_epoches --output deepdrug3d`.
   - `--alist` is the list of the full path to the ATP binding voxel data while `--hlist` is the list of the full path to the Heme binidng voxel data.
