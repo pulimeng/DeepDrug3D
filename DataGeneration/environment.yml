@@ -1,13 +1,8 @@
 name: d3d
 channels:
   - conda-forge
-  - pytorch
   - defaults
 dependencies:
-  - pytorch
-  - torchvision
-  - cudatoolkit=10.1
-  - scikit-learn
   - biopandas
   - openbabel
   - h5py
