@@ -41,7 +41,7 @@ def main(opt):
     xid = labels['id'].tolist()
     ys = labels['class'].tolist()
     dataset = VoxelDataset(label_file=opt.lpath, root_dir=opt.path)
-    kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=seed)
+    kfold = StratifiedKFold(n_splits=2, shuffle=True, random_state=seed)
     bs = opt.bs
     f_cnt = 0
     for train_id, val_id in kfold.split(xid, ys):
@@ -61,7 +61,7 @@ def main(opt):
         best_val_loss = 1e6
         
         print('===================Fold {} starts==================='.format(f_cnt+1))
-        for epoch in range(50):
+        for epoch in range(opt.epoch):
             s = time.time()
             
             model.train()
@@ -86,7 +86,7 @@ def main(opt):
                 y_pred = output.data.cpu().numpy().argmax(axis=1)
                 acc += accuracy_score(y_true, y_pred)*100
                 losses += loss.data.cpu().numpy()
-
+                
             tr_losses[epoch] = losses/(i+1)
             tr_accs[epoch] = acc/(i+1)
             
@@ -146,7 +146,7 @@ if __name__ == "__main__":
     parser.add_argument('--opath', type=str, required=False, help='output folder name')
     parser.add_argument('--bs', type=int, required=True, help='batch size')
     parser.add_argument('--lr', type=float, required=True, help='learning rate')
-    parser.add_argument('--epoch', type=int, action='store_true', help='number of epochs to train for')
+    parser.add_argument('--epoch', type=int, required=True, help='number of epochs to train for')
     
     opt = parser.parse_args()
     main(opt)
