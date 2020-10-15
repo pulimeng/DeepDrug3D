@@ -17,7 +17,7 @@ def site_voxelization(site, r, N, shape):
     if shape == False:
         print('DFIRE potential included in the voxel representation')
         potentials = site[:,3:]
-        voxel = np.zeros(shape=(coords.shape[1], voxel_length, voxel_length, voxel_length),
+        voxel = np.zeros(shape=(potentials.shape[1], voxel_length, voxel_length, voxel_length),
             dtype = np.float64)
         cnt = 0
         for x in range(voxel_start, voxel_end+1, 1):
