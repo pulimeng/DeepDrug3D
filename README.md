@@ -41,7 +41,7 @@ To generate the binding grid data, run `python voxelization.py --f example.pdb -
   - `--o` output folder path.
   - `--p` or `--s` whether to calculate the potential nor not. If not, only the binary occupied grid will be returne, i.e., the shape of the grid only. Default, yes (`--p`).
 
-Several files will be saved, including `example_transformed.pdb` (coordinate-transformed pdb file), `example_transformed.mol2` (coordinate-transformed mol2 file for the calculation of DFIRE potential), `example.grid` (grid representation of the binding pocket grid for visualization), and `example.h5` (numpy array of the binidng pocket grid).
+Several files will be saved, including `example_transformed.pdb` (coordinate-transformed pdb file), `example_transformed.mol2` (coordinate-transformed mol2 file for the calculation of DFIRE potential), `example.grid` (grid representation of the binding pocket grid for visualization), and `example.h5` (numpy array of the voxel representation).
 
 To visualize the output binidng pocket grid, run `python visualization --i example.grid --c 0`.
   - `--i` input binding pocket grid file path.
@@ -66,11 +66,13 @@ The probability of pocket provided binds with other ligands: 0.5000
  
 3. Training
 
-In order to use our model to train your own dataset, you have to conert your dataset, which will be pdbs to voxel representation of protein-ligand biniding site. The trainig module can be runned as `python train.py --alist deepdrug3d_atp.lst --hlist deepdrug3d_heme.lst --vfolder deepdrug3d_voxel_data --bs batch_size --lr inital_learning_rate --epoch number_of_epoches --output deepdrug3d`.
-  - `--alist` is the list of the full path to the ATP binding voxel data while `--hlist` is the list of the full path to the Heme binidng voxel data.
-  - `--vfolder` is the folder contains all the voxel data, which contains numpy array (.npy) for each protein-ligand pair.
-  - `--bs`, `--lr`, `--epoch` is the hyperparameters related to the model. Recommanded values are 64, 0.00001, 30.
-  - If no output location is provided, the model will be saved to the current workding direcotry as 'deepdrug3d.h5'.
+In order to use our model to train your own dataset, you have to convert your dataset, which will be pdbs to voxel representation of protein-ligand biniding grid representation. The data conversion procedure has been descibed before. The module runs a random 5-fold cross validation. All the related results including loss, accuracy and model weights will be saved.
+
+The trainig module can be runned as `python train.py --path path_to_your_data_folder --lpath path_to_your_label_file --bs batch_size --lr inital_learning_rate --epoch number_of_epoches --opath output_folder_path`.
+  - `--path` path to the folder contains all the voxel data.
+  - `--lpath` label file path. The file should be a comma separated file with no header. The first column is the filename and the second column is the class (starts from 0).
+  - `--bs`, `--lr`, `--epoch` is the hyperparameters related to the model. Recommanded values are 64, 1e-5, 50.
+  - `--opath`If no output location is provided, a `logs` folder will be created under current working directory to store everything.
   
 # Dataset
 
