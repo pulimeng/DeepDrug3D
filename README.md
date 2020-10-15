@@ -9,7 +9,7 @@ Pu L, Govindaraj RG, Lemoine JM, Wu HC, Brylinski M (2019) DeepDrug3D: Classific
 This README file is written by Limeng Pu. **This is a newer version of the implmentation. A intermediate results visualization function has been added. And the model has been retrained using Pytorch instead of Keras.**
 
 <p align="center">
-    <img width="300" height="300" src="./image/1a2sA.png">
+    <img width="400" height="400" src="./image/1a2sA.png">
 </p>
 
 An example of binding grid generated, pdb ID: 1a2sA, atom type: C.ar. Red --> low potentials while Blue --> high potentials.
