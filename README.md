@@ -59,7 +59,9 @@ To use the prediction module, run `python predict.py --f example.h5 --m path_to_
   
 The output would be something like 
   ``The probability of pocket provided binds with ATP ligands: 0.3000
+  
   The probability of pocket provided binds with Heme ligands: 0.2000
+  
   The probability of pocket provided binds with other ligands: 0.5000``
  
 3. Training
