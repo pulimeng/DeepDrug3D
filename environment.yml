@@ -1,4 +1,4 @@
-name: d3dtest
+name: d3d
 channels:
   - conda-forge
   - pytorch
