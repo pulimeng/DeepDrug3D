@@ -1,6 +1,7 @@
 import argparse
 import h5py
 
+import numpy as np
 import torch
 import torch.nn.functional as F
 from model import DeepDrug3D
@@ -8,6 +9,8 @@ from model import DeepDrug3D
 def load_data(path):
     with h5py.File(path, 'r') as f:
         X = f['X'][()]
+    if len(X.shape) == 4:
+        X = np.expand_dims(X, axis=0)
     X = torch.FloatTensor(X)
     return X
 
@@ -22,7 +25,7 @@ def predict(path, model_path):
     data = data.to(device)
     output = net(data)
     proba = F.softmax(output, dim=1)
-    score = proba.data.cpu().numpy()
+    score = proba.data.cpu().numpy()[0]
     print('The probability of pocket provided binds with ATP ligands: {:.4f}'.format(score[0]))
     print('The probability of pocket provided binds with Heme ligands: {:.4f}'.format(score[1]))
     print('The probability of pocket provided binds with other ligands: {:.4f}'.format(score[2]))
