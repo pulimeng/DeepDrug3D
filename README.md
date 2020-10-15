@@ -70,7 +70,7 @@ In order to use our model to train your own dataset, you have to convert your da
 
 The trainig module can be runned as `python train.py --path path_to_your_data_folder --lpath path_to_your_label_file --bs batch_size --lr inital_learning_rate --epoch number_of_epoches --opath output_folder_path`.
   - `--path` path to the folder contains all the voxel data.
-  - `--lpath` label file path. The file should be a comma separated file with no header. The first column is the filename and the second column is the class (starts from 0).
+  - `--lpath` label file path. The file should be a comma separated file with no header. The first column is the filename and the second column is the class (starts from 0). An example has been provided `./Learning/labels`.
   - `--bs`, `--lr`, `--epoch` is the hyperparameters related to the model. Recommanded values are 64, 1e-5, 50.
   - `--opath`If no output location is provided, a `logs` folder will be created under current working directory to store everything.
   
