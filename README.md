@@ -31,7 +31,7 @@ The package provides data-generation, prediction, and training modules.
 
 1. Data generation
 
-This module generates data for training/prediction while providing intermediate results for visualization. All files are under `./DataGeneration`.
+This module generates data for training/prediction while providing intermediate results for visualization. All files are under `./DataGeneration`. The DFIRE potential calculation uses the module (`./DataGeneration/dligand-linux`) described in `A Knowledge-Based Energy Function for Protein−Ligand, Protein−Protein, and Protein−DNA Complexes by Zhang et al.` since it is written in Fortran, which is faster than our own implementation in Python.
 
 To generate the binding grid data, run `python voxelization.py --f example.pdb --a example_aux.txt --o results --r 15 --n 31 --p`.
   - `--f` input pdb file path.
@@ -51,16 +51,17 @@ An output `example_grid.pdb` will be generated for visualization. Note this pock
 
 2. Prediction
 
-It uses the pdb file and an auxilary input file, which contains biniding residue numbers and center of the ligand/pocket, as input files. The center in the auxilary input file is not necessary. If the center is not provided, the model will calculate the pocket center and use it as the ligand center.  The trained model is available at `https://osf.io/enz69/`
-To use the prediction module, run `python predict.py --protein your_protein.pdb --aux your_auxilary_file.txt --r 15 --N 31`.
-  - `--protein` contains the full path to the pdb file you wish to classify.
-  - `--aux` is the auxilary file with binding residue numbers and center of ligand (optional).
-  - `--r` and `--N` are the radius of the grid and number of points along the dimension of the grid. The default settings are r = 15 and N = 31. This setting yeilds a 32 x 32 x 32 grid. This can be changed by setting r and N.
-  - Two files will be generated along the process, namely `your_protein_trans.pdb` and `your_protein_trans.mol2` under the current working directory. These files are the transformed (moved to the provided center and aligned with the principal axes of the pocket) protein. They will be used during the later processes. If you do not wish to keep them, you can just delete them after the getting the results.
-  - The output will be printed as three probabilities that each represents the likelihood of the pocket being an ATP/Heme/other binding pocket.
-  - The entire process may take upto 30 minutes to finish since the grid point generation (mostly the potential calculation) is very time consuming.
-  - The DFIRE potentials calculation uses the module provided by `A Knowledge-Based Energy Function for Protein−Ligand, Protein−Protein, and Protein−DNA Complexes by Zhang et al.` since it is written in Fortran, which is faster than our own implementation in Python.
+This module classifies the target binding pocket to be either an ATP-, Heme-, or other-type pocket, which basically means which type of ligand it tends to binding to. The trained model is available at `https://osf.io/enz69/`. All files are under `./Learning`.
+
+To use the prediction module, run `python predict.py --f example.h5 --m path_to_the_trianed_model`.
+  - `--f` input h5 file path.
+  - `--m` path to the trained model weights.
   
+The output would be something like 
+  The probability of pocket provided binds with ATP ligands: 0.3000
+  The probability of pocket provided binds with Heme ligands: 0.2000
+  The probability of pocket provided binds with other ligands: 0.5000
+ 
 3. Training
 
 In order to use our model to train your own dataset, you have to conert your dataset, which will be pdbs to voxel representation of protein-ligand biniding site. The trainig module can be runned as `python train.py --alist deepdrug3d_atp.lst --hlist deepdrug3d_heme.lst --vfolder deepdrug3d_voxel_data --bs batch_size --lr inital_learning_rate --epoch number_of_epoches --output deepdrug3d`.
