@@ -76,4 +76,4 @@ The trainig module can be runned as `python train.py --path path_to_your_data_fo
   
 # Dataset
 
-We provided our dataset we used for the training at `https://osf.io/enz69/`, which are the voxel representations of ATP, Heme, and other along with the class label file.
+We provided our dataset we used for the training at https://osf.io/enz69/, which are the voxel representations of ATP, Heme, and other along with the class label file.
