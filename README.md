@@ -16,8 +16,7 @@ An example of binding grid generated, pdb ID: 1a2sA, atom type: C.ar. Red --> lo
 
 # Change Log
 
-**This is a newer version of the implmentation. Since many people are interested in visualize the output from the grid generation like in the image above, I've decided to seperate the data-generation module and the training/prediction module. And the deep learning 
-library used has been changed from <em>Keras</em> to <em>Pytorch</em>**
+**This is a newer version of the implmentation. Since many people are interested in visualize the output from the grid generation like in the image above, I've decided to seperate the data-generation module and the training/prediction module. Another reason for this iteration of implementation is the dligand-linux used for potential calculation requires 32-bit Linux while <em>Pytorch</em> requires 64-bit Linux. It causes confiliction and resulting in different errors depending on the order you install them. Also the deep learning library used has been changed from <em>Keras</em> to <em>Pytorch</em>**.
 
 # Prerequisites
 
