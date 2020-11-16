@@ -32,7 +32,10 @@ The package provides data-generation, prediction, and training modules.
 
 This module generates data for training/prediction while providing intermediate results for visualization. All files are under `./DataGeneration`. The DFIRE potential calculation uses the module (`./DataGeneration/dligand-linux`) described in `A Knowledge-Based Energy Function for Protein−Ligand, Protein−Protein, and Protein−DNA Complexes by Zhang et al.` since it is written in Fortran, which is faster than our own implementation in Python.
 
-To generate the binding grid data, run `python voxelization.py --f example.pdb --a example_aux.txt --o results --r 15 --n 31 --p`.
+To generate the binding grid data, run 
+
+<pre><code>python voxelization.py --f example.pdb --a example_aux.txt --o results --r 15 --n 31 --p</code></pre>
+
   - `--f` input pdb file path.
   - `--a` input auxilary file path, with binding residue numbers and center of ligand (optional). An example of the auxilary file is provided in `example_aux.txt`.
   - `--r` the radius of the spherical grid.
@@ -42,7 +45,10 @@ To generate the binding grid data, run `python voxelization.py --f example.pdb -
 
 Several files will be saved, including `example_transformed.pdb` (coordinate-transformed pdb file), `example_transformed.mol2` (coordinate-transformed mol2 file for the calculation of DFIRE potential), `example.grid` (grid representation of the binding pocket grid for visualization), and `example.h5` (numpy array of the voxel representation).
 
-To visualize the output binidng pocket grid, run `python visualization --i example.grid --c 0`.
+To visualize the output binidng pocket grid, run 
+
+<pre><code>python visualization --i example.grid --c 0</code></pre>
+
   - `--i` input binding pocket grid file path.
   - `--c` channel to visualize. Note that if you pass `--s` in the previous step, the channel number `--c` has to be 0.
   
@@ -52,7 +58,11 @@ An output `example_grid.pdb` will be generated for visualization. Note this pock
 
 This module classifies the target binding pocket to be either an ATP-, Heme-, or other-type pocket, which basically means which type of ligand it tends to binding to. The trained model is available at `https://osf.io/enz69/`. All files are under `./Learning`.
 
-To use the prediction module, run `python predict.py --f example.h5 --m path_to_the_trianed_model`.
+To use the prediction module, run 
+
+<pre><code>python predict.py --f example.h5 --m path_to_the_trianed_model</code></pre>
+
+
   - `--f` input h5 file path.
   - `--m` path to the trained model weights.
   
