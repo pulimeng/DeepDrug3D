@@ -37,7 +37,7 @@ def main(opt):
         os.mkdir('./logs')
         opt.opath = './logs'
     
-    labels = pd.read_csv(opt.lpath, names=['id','class'])
+    labels = pd.read_csv(opt.lpath)
     xid = labels['id'].tolist()
     ys = labels['class'].tolist()
     dataset = VoxelDataset(label_file=opt.lpath, root_dir=opt.path)
